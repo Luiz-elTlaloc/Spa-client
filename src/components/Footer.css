@@ -6,10 +6,12 @@
 
 
 .footer-container {
-    width: 100%;
-    padding: 70px 30px 20px;
+    margin-top: 468px;
+    margin-left: 115px;
     background-color: rgb(170, 170, 170);
-    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-container img {
