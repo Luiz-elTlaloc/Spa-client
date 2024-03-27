@@ -31,20 +31,64 @@ textarea {
 }
 
 nav {
-  background: #515f7d;
+  background: #076678;
   color: white;
-  padding: 0px 20px;
   box-shadow: 0px 1px 2px gray;
   width: 100%;
-  margin-bottom: 15px;
-  padding: 5px;
+  height: 105px;
+  display: flex;
+  justify-content: center;
 }
 
-nav li {
-  list-style: none;
-  color: white;
-  font-size: 24px;
-  font-weight: 600;
+.logo {
+  display:flex;
+  justify-content:end;
+  cursor: pointer;
+  margin-top: -65px;
+  margin-left: rem;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  margin-top: 106px;
+  height: 100%;
+  width: 115px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color:#ecac2d;
+  padding-top: 20px;
+
+}
+
+.sidebar h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background-color: #555;
+}
+
+.content {
+  margin-left: 250px; /* Adjust according to the width of your sidebar */
+  padding: 20px;
 }
 
 .SignupPage,
