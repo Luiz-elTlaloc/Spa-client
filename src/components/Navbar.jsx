@@ -5,6 +5,16 @@ import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context"; // <== IMPORT
 import logo_light from '../assets/Logo.png'
 
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("nav").style.top = "0"; // Navbar follows scroll
+  } else {
+    document.getElementById("nav").style.top = "-50px"; // Navbar hidden at top
+  }
+}
+
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
@@ -15,6 +25,8 @@ function Navbar() {
   };
   //  Update the rendering logic to display different content
   //  depending on whether the user is logged in or not
+
+  
   return (
     <div>
     <nav>
