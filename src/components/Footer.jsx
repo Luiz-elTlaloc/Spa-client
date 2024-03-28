@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer-logo">
-      <img src={logo_light} alt="" />        
+      <a>Whatsapp</a>        
       </div>
       <div className="github-button">
         <a href="https://github.com/emelygomezio/react-app">
@@ -15,7 +15,7 @@ const Footer = () => {
       </div>
       <div className="footer-nav">
         <div className="footer-bottom">
-          <p> made with ❤️ for Ironhack!</p>
+          <p> Facebook</p>
         </div>
       </div>
     </div>

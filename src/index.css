@@ -50,14 +50,15 @@ nav {
 
 /* Sidebar Styles */
 .sidebar {
-  margin-top: 106px;
-  height: 800px;
+  margin-top: 105px;
+  height: calc(100vh - 105px);
   width: 115px;
   position: fixed;
   top: 0;
   left: 0;
   background-color: rgb(170,170,170);
   padding-top: 20px;
+  z-index: 1000;
 
 }
 
@@ -91,8 +92,12 @@ nav {
 }
 
 .footer-container {
-  margin-bottom: 0px;
-  margin: 525px 0px 0px 115px;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  left: 115px;
+  width: calc(100% - 115px);
   background-color: #e9ae39;
   height: 95px;
   display: flex;
