@@ -43,12 +43,7 @@ function Navbar() {
             <li><a href="#">Contact</a></li>
         </ul>
     </div>
-    <div class="content">
-        <h2>Main Content Area</h2>
-        <p>This is where your main content goes.</p>
-    </div>
-    
-   </div>
+  </div>
       
 
     //   {/*    UPDATE     */}

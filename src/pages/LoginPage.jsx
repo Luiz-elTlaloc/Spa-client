@@ -15,6 +15,7 @@ function LoginPage() {
   const [thisUser, setThisUser] = useState({
     email: "",
     password: "",
+    role: "user"
   });
 
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -66,6 +67,13 @@ function LoginPage() {
           value={thisUser.password}
           onChange={handleTextChange}
         />
+
+        <label>Role:
+        <select name="role" value={thisUser.role} onChange={handleTextChange}>
+          <option value={'user'}>User</option>
+          <option value={'admin'}>Admin</option>
+        </select>
+        </label>
 
         <button type="submit">Login</button>
       </form>

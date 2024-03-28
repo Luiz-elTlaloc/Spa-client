@@ -129,6 +129,112 @@ nav {
   color: white;
 }
 
+/* ABOUT PAGE CSS  */
+.about-container {
+  font-family: "Lato";
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.about-title {
+  font-family: "Lato";
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.about-image {
+width: 125px;
+height: 125px;
+display:block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 0;
+}
+
+.about-greeting {
+  font-family: "Lato";
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.about-contents {
+  font-family: "Lato";
+  padding-bottom: 2rem; ;
+  justify-content: center;
+  text-align: center;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  font-size: 18px;
+}
+
+/* Estilos para el carrusel */
+.slick-slider {
+  position: relative;
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-arrow slick-prev{
+  color: black;
+}
+.slick-slide {
+  float: left;
+  min-height: 1px;
+  display: none;
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 18px;
+  color: #333;
+  z-index: 1;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.slick-dots li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.slick-dots li button {
+  font-size: 12px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #bbb;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: background-color 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+  background-color: #333;
+}
+
 
 .SignupPage,
 .LoginPage {
