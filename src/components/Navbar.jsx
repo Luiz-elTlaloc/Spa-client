@@ -1,50 +1,54 @@
 // src/components/Navbar.jsx
 
 import { Link } from "react-router-dom";
-import { useContext } from "react"; // <== IMPORT
+import { useContext, useState } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context"; // <== IMPORT
-import logo_light from '../assets/Logo.png'
-
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("nav").style.top = "0"; // Navbar follows scroll
-  } else {
-    document.getElementById("nav").style.top = "-50px"; // Navbar hidden at top
-  }
-}
+import logo_light from "../assets/Logo.png";
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); // <== ADD
 
-  const getToken = () => {
-    return localStorage.getItem("authToken");
-  };
+  const [showTreatmentsMenu, setShowTreatmentMenu] = useState(false);
+  // const getToken = () => {
+  //   return localStorage.getItem("authToken");
+  // }; esto hya que ver si funciona despues
+
   //  Update the rendering logic to display different content
   //  depending on whether the user is logged in or not
 
-  
+  const handleServicesButtonClick = () => {
+    setShowTreatmentMenu(!showTreatmentsMenu);
+  };
+
   return (
     <div>
-    <nav>
-
-    <Link to="/">
-        <img src={logo_light} alt='logo' className='logo' /> </Link>
-    </nav>
-    <div class="sidebar">
-        <h2>My Sidebar</h2>
+      <nav>
+        <Link to="/">
+          <img src={logo_light} alt="logo" className="logo" />{" "}
+        </Link>
+      </nav>
+      <div class="sidebar">
+        <h2>Menu</h2>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li id="servicesButton" onClick={handleServicesButtonClick}><a href="/treatments/:id">Services</a>
+          </li>
+          <div id="treatmentsMenu" class="hidden">
+            <ul>
+              <li>
+                <a href="/treatments/:id">Treatment 1</a>
+              </li>
+              <li>
+                <a herf="/treatments/:id">Treatment 2</a>
+              </li>
+            </ul>
+          </div>
         </ul>
+      </div>
     </div>
-  </div>
-      
 
     //   {/*    UPDATE     */}
     //   {getToken() ? (
