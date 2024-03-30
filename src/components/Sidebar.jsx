@@ -5,16 +5,6 @@ import { FaBoxOpen } from "react-icons/fa";
 import { IoAddOutline } from "react-icons/io5";
 import { FaFilter } from "react-icons/fa6";
 
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("sidebar").style.top = "10px"; // Adjust as needed
-  } else {
-    document.getElementById("sidebar").style.top = "100px"; // Adjust as needed
-  }
-}
-
 const Sidebar = [
     {
         title:"Home",

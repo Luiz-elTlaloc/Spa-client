@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import AboutUsPage from "./pages/AboutUsPage";
+import TreatmentCard from "./components/TreatmentCard";
 
 function App() {
   const getToken = () => {
@@ -19,6 +20,10 @@ function App() {
   const NotLoggedIn = () => {
     return !getToken() ? <Outlet /> : <Navigate to="/" />;
   };
+
+  // const treatment = {
+  //   image:
+  // }
 
   return (
     <div className="App">
@@ -39,6 +44,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/about" element={<AboutUsPage/>} />
+          <Route path="/treatment/:id" element={<TreatmentCard/>} />
 
         </Route>
 
