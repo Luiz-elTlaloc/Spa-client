@@ -1,22 +1,18 @@
 // src/components/Navbar.jsx
 
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react"; // <== IMPORT
-import { AuthContext } from "../context/auth.context"; // <== IMPORT
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/auth.context";
 import logo_light from "../assets/Logo.png";
 
 function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider `value` prop
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext); // <== ADD
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   const [showTreatmentsMenu, setShowTreatmentMenu] = useState(false);
   // const getToken = () => {
   //   return localStorage.getItem("authToken");
   // }; esto hya que ver si funciona despues
 
-  //  Update the rendering logic to display different content
-  //  depending on whether the user is logged in or not
 
   const handleServicesButtonClick = () => {
     setShowTreatmentMenu(!showTreatmentsMenu);
@@ -46,6 +42,7 @@ function Navbar() {
               </li>
             </ul>
           </div>
+          <li><a href="/signup">Signup</a></li>  
         </ul>
       </div>
     </div>

@@ -15,16 +15,13 @@ function AddTreatment({ addTreatment }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Create the treatment object with the input values
     const newTreatment = {
       image,
       title,
       description,
       details,
     };
-    // Call the addTreatment function passed from the parent component
     addTreatment(newTreatment);
-    // Reset the form fields after submission
     setImage("");
     setTitle("");
     setDescription("");

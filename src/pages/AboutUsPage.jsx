@@ -34,7 +34,7 @@ function AboutPage() {
         <br />
         <p className="about-paragraph">
           {" "}
-          As a former BodyBrite Manager, Monica has honed her skills in advanced skincare treatments,
+          As a former Manager form a recognized spa branch, Monica has honed her skills in advanced skincare treatments,
           always staying at the forefront of industry innovations. Her commitment to excellence and
           personalized care ensures that every client receives tailored solutions to address their 
           specific needs and concerns.

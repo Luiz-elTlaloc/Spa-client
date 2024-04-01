@@ -1,7 +1,15 @@
+import { Link } from "react-router-dom";
+import PromoCard from "../components/PromoCard";
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 function HomePage() {
     return (
-      <div>
-        <h1>Home Page</h1>
+      <div className="content">
+      <br/>
+        <PromoCard />
       </div>
     );
   }

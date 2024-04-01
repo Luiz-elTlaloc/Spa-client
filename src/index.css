@@ -125,7 +125,11 @@ nav {
 }
 
 .content {
-  margin-left: 250px; 
+  margin-left: 450px;
+  max-width: fit-content;
+  max-height: fit-content;
+  margin-right: 300px;
+  margin-bottom: 150px;
 }
 
 .footer-container {
@@ -265,7 +269,7 @@ margin-bottom: 0;
   background-color: #bbb;
   cursor: pointer;
   opacity: 0.75;
-  transition: background-color 0.3s ease;
+  transition: background-color 10000s;
 }
 
 .slick-dots li.slick-active button {

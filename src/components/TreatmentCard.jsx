@@ -1,5 +1,5 @@
 import React from "react";
-import "../index.css"; // Import CSS for styling
+import "../index.css";
 
 function TreatmentCard({ image, title, description, details }) {
   return (
