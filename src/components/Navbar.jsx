@@ -6,12 +6,12 @@ import { AuthContext } from "../context/auth.context";
 import logo_light from "../assets/Logo.png";
 
 function Navbar() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, User, logOutUser } = useContext(AuthContext);
+  const getToken = () => {
+    return localStorage.getItem("authToken");
+  };
 
   const [showTreatmentsMenu, setShowTreatmentMenu] = useState(false);
-  // const getToken = () => {
-  //   return localStorage.getItem("authToken");
-  // }; esto hya que ver si funciona despues
 
 
   const handleServicesButtonClick = () => {
@@ -44,28 +44,25 @@ function Navbar() {
           </div>
           <li><a href="/signup">Signup</a></li>  
         </ul>
+        {getToken() ? (
+        <>
+          <button onClick={logOutUser}>Logout</button>
+           {/* <span>{user && user.name}</span> */}
+        </>
+      ) : (
+        <>
+          <Link to="/signup">
+            {" "}
+            <button>Sign Up</button>{" "}
+          </Link>
+          <Link to="/login">
+            {" "}
+            <button>Login</button>{" "}
+          </Link>
+        </>
+      )}
       </div>
     </div>
-
-    //   {/*    UPDATE     */}
-    //   {getToken() ? (
-    //     <>
-    //       <button onClick={logOutUser}>Logout</button>
-    //       {/* <span>{user && user.name}</span> */}
-    //     </>
-    //   ) : (
-    //     <>
-    //       <Link to="/signup">
-    //         {" "}
-    //         <button>Sign Up</button>{" "}
-    //       </Link>
-    //       <Link to="/login">
-    //         {" "}
-    //         <button>Login</button>{" "}
-    //       </Link>
-    //     </>
-    //   )}
-    //   </div>
   );
 }
 

@@ -28,6 +28,11 @@ function AddTreatment({ addTreatment }) {
     setDetails([{ label: "", value: "" }]);
   };
 
+  // useEffect(() => {
+  //   if(user.role !== "admin"){
+  //     navigate("/")     //or somewhere else
+  // }, [])
+
   return (
     <div className="AddTreatment">
       <h3>Add Treatment</h3>

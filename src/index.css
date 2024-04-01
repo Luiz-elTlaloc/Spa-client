@@ -125,10 +125,8 @@ nav {
 }
 
 .content {
-  margin-left: 450px;
-  max-width: fit-content;
-  max-height: fit-content;
-  margin-right: 300px;
+  margin-left: 250px;
+  margin-right: 150px;
   margin-bottom: 150px;
 }
 
@@ -224,8 +222,7 @@ margin-bottom: 0;
   position: relative;
   display: block;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
+  padding: 150px;
 }
 
 .slick-arrow slick-prev{
@@ -293,11 +290,11 @@ margin-bottom: 0;
 
 .SignupPage,
 .LoginPage {
-  background-color: #608dd5;
+  background-color: rgb(170,170,170);
 }
 
 .LoginPage {
-  background-color: #94a7c8;
+  background-color: rgb(170,170,170);
 }
 
 .SignupPage form,
