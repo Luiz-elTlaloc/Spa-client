@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { AuthContext } from './AuthContext';
+import React, { useState, useEffect } from "react";
+import { post } from '../services/authService'
 
 const PromoCardAdminActions = () => {
   const { user } = useContext(AuthContext);
@@ -11,7 +11,6 @@ const PromoCardAdminActions = () => {
       {isAdmin && (
         <>
           <button onClick={handleCreate}>Create Promo</button>
-          <button onClick={handleUpdate}>Update Promo</button>
           <button onClick={handleDelete}>Delete Promo</button>
         </>
       )}

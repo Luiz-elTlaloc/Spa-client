@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import TreatmentCard from "./TreatmentCard";
+import React, { useState, useEffect } from "react";
+import { post } from '../services/authService'
 
-function AddTreatment({ addTreatment }) {
+function AddTreatment({ refreshTreatments }) {
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [details, setDetails] = useState([{ label: "", value: "" }]);
-
   const handleDetailChange = (index, key, value) => {
     const updatedDetails = [...details];
     updatedDetails[index][key] = value;
@@ -15,23 +14,29 @@ function AddTreatment({ addTreatment }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newTreatment = {
+
+    const requestBody = {
       image,
       title,
       description,
       details,
     };
-    addTreatment(newTreatment);
-    setImage("");
-    setTitle("");
-    setDescription("");
-    setDetails([{ label: "", value: "" }]);
+
+    post('/treatments/', requestBody)
+    .then((response) => {
+      setImage("");
+      setTitle("");
+      setDescription("");
+      setDetails([{ label: "", value: "" }]);
+    })
+    .catch((error) => console.log(error))
   };
 
-  // useEffect(() => {
-  //   if(user.role !== "admin"){
-  //     navigate("/")     //or somewhere else
-  // }, [])
+  useEffect(() => {
+    if(user.role !== "admin"){
+      navigate("/treatments")     //or somewhere else
+  }
+}, []);
 
   return (
     <div className="AddTreatment">
