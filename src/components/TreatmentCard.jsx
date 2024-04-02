@@ -1,9 +1,11 @@
 import React from "react";
 import "../index.css";
+import { Link } from "react-router-dom";
 
-function TreatmentCard({ image, title, description, details }) {
+function TreatmentCard({ image, title, description, details, _id }) {
   return (
     <div className="treatment-card">
+    <Link to={`treatments/${_id}`}>
       <div className="treatment-image">
         <img src={image} alt={title} />
       </div>
@@ -24,6 +26,7 @@ function TreatmentCard({ image, title, description, details }) {
           </tbody>
         </table>
       </div>
+      </Link>
     </div>
   );
 }

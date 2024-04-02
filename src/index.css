@@ -304,7 +304,8 @@ margin-bottom: 0;
   align-items: center;
 }
 
-.treatment-card {
+.treatment-card 
+.AddTreatment{
   display: flex;
   margin-bottom: 20px;
 }

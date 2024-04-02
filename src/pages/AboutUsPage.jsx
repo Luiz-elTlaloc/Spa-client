@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from 'react-router-dom';
-import Sidebar from '../components/Sidebar';
 import logo_light from '../assets/Logo.png'
 // import '../components/AboutPage.css';
 // import iconpng from "../assets/icon.png";

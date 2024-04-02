@@ -6,7 +6,7 @@ import { AuthContext } from "../context/auth.context";
 import logo_light from "../assets/Logo.png";
 
 function Navbar() {
-  const { isLoggedIn, User, logOutUser } = useContext(AuthContext);
+  const { logOutUser } = useContext(AuthContext);
   const getToken = () => {
     return localStorage.getItem("authToken");
   };
@@ -30,37 +30,40 @@ function Navbar() {
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li id="servicesButton" onClick={handleServicesButtonClick}><a href="/treatments/:id">Services</a>
+          <li id="servicesButton" onClick={handleServicesButtonClick}><a href="/treatments">Services</a>
           </li>
           <div id="treatmentsMenu" class="hidden">
             <ul>
-              <li>
-                <a href="/treatments/:id">Treatment 1</a>
+              <li className="menu-item">
+                <a href="/treatments/treatment{}">Treatment 1</a>
               </li>
-              <li>
-                <a herf="/treatments/:id">Treatment 2</a>
+              <li className="menu-item">
+                <a href="/treatments">Treatment 2</a>
               </li>
             </ul>
           </div>
-          <li><a href="/signup">Signup</a></li>  
+          <>
+          {getToken() ? (  
+            <>
+          <li onClick={logOutUser}>Logout</li>
+          <li>
+          <a href="/edit-treatments">Edit treatments</a>
+          </li>
+          <li>
+            <a href='/set-promos'>Promos</a>
+          </li>
+          </>
+          ) : (
+          <>
+            <li>
+            <a href="/signup">Signup</a>
+            </li>
+            <li>
+            <a href="/login">Login</a></li>
+          </>
+          )}
+          </>
         </ul>
-        {getToken() ? (
-        <>
-          <button onClick={logOutUser}>Logout</button>
-           {/* <span>{user && user.name}</span> */}
-        </>
-      ) : (
-        <>
-          <Link to="/signup">
-            {" "}
-            <button>Sign Up</button>{" "}
-          </Link>
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
-        </>
-      )}
       </div>
     </div>
   );

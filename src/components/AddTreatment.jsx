@@ -22,7 +22,13 @@ function AddTreatment({ refreshTreatments }) {
       details,
     };
 
-    post('/treatments/', requestBody)
+    useEffect(() => {
+      if(user.role !== "admin"){
+        navigate("/edit-treatments")     //or somewhere else
+    }
+  }, []);
+
+    post('/edit-treatments', requestBody)
     .then((response) => {
       setImage("");
       setTitle("");
@@ -32,11 +38,6 @@ function AddTreatment({ refreshTreatments }) {
     .catch((error) => console.log(error))
   };
 
-  useEffect(() => {
-    if(user.role !== "admin"){
-      navigate("/treatments")     //or somewhere else
-  }
-}, []);
 
   return (
     <div className="AddTreatment">
