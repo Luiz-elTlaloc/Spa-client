@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { post } from '../services/authService'
 
-function AddProject({ refreshTreatments }) {
+function AddPromo({ refreshPromos }) {
   const [image, setImage] = useState("");
 
   const handleSubmit = (e) => {
@@ -40,4 +40,4 @@ function AddProject({ refreshTreatments }) {
   );
 };
 
-export default AddProject;
+export default AddPromo;

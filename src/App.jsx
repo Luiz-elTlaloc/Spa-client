@@ -8,6 +8,8 @@ import LoginPage from "./pages/LoginPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import TreatmentCard from "./components/TreatmentCard";
 import EditTreatmentsPage from "./pages/EditTreatments";
+import AddPromo from "./components/AddPromo";
+import AddTreatment from "./components/AddTreatment";
 
 function App() {
   const getToken = () => {
@@ -36,8 +38,9 @@ function App() {
 
         <Route element={<LoggedIn />}>
           <Route path="/about" element={<AboutUsPage/>} />
-          <Route path="/treatment" element={<TreatmentCard/>} />
-          <Route path="/edit-treatments" element={<EditTreatmentsPage/>} />
+          <Route path="/treatments" element={<TreatmentCard/>} />
+          <Route path="/edit-treatments" element={<AddTreatment/>} />
+          <Route path="/set-promos" element={<AddPromo/>} />
 
 
 
@@ -49,7 +52,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/about" element={<AboutUsPage/>} />
-          <Route path="/treatment" element={<TreatmentCard/>} />
+          <Route path="/treatments" element={<TreatmentCard/>} />
 
         </Route>
 

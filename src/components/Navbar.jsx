@@ -35,7 +35,7 @@ function Navbar() {
           <div id="treatmentsMenu" class="hidden">
             <ul>
               <li className="menu-item">
-                <a href="/treatments/treatment{}">Treatment 1</a>
+                <a href="/treatments">Treatment 1</a>
               </li>
               <li className="menu-item">
                 <a href="/treatments">Treatment 2</a>

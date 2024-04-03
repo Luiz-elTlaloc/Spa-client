@@ -26,7 +26,7 @@ function EditTreatmentsPage() {
     
     put(`/treatments/update/${treatmentId}`, requestBody)
     .then((response) => {
-      navigate(`/treatment/${treatmentId}`);
+      navigate(`/treatments/${treatmentId}`);
     })
     .catch((error) => {
       setErrorMessage(error.response.data.message)

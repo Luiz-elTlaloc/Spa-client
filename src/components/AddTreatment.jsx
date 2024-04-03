@@ -1,34 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { post } from '../services/authService'
+import { AuthContext } from "../context/auth.context";
 
 function AddTreatment({ refreshTreatments }) {
+  const { user } = useContext(AuthContext);
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [details, setDetails] = useState([{ label: "", value: "" }]);
+  
+  
   const handleDetailChange = (index, key, value) => {
     const updatedDetails = [...details];
     updatedDetails[index][key] = value;
     setDetails(updatedDetails);
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     const requestBody = {
       image,
       title,
       description,
       details,
     };
-
-    useEffect(() => {
-      if(user.role !== "admin"){
-        navigate("/edit-treatments")     //or somewhere else
-    }
-  }, []);
-
-    post('/edit-treatments', requestBody)
+    
+    
+    post('/treatments', requestBody)
     .then((response) => {
       setImage("");
       setTitle("");
@@ -37,7 +36,11 @@ function AddTreatment({ refreshTreatments }) {
     })
     .catch((error) => console.log(error))
   };
-
+  
+      if(!user || user.role !== "admin") {
+      return <div>Unauthorized</div>;
+      }
+  
 
   return (
     <div className="AddTreatment">

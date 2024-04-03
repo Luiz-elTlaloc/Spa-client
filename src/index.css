@@ -273,10 +273,10 @@ margin-bottom: 0;
   background-color: #333;
 }
 
-
+.AddTreatment,
 .SignupPage,
 .LoginPage {
-  background: #f9eec3;
+  background: #e9ae39;
   border: 1px solid grey;
   box-shadow: 0px 2px 3px grey;
   width: 400px;
@@ -307,7 +307,10 @@ margin-bottom: 0;
 .treatment-card 
 .AddTreatment{
   display: flex;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin-left: 250px;
+  margin-right: 150px;
+  margin-bottom: 150px;
 }
 
 .treatment-image {
