@@ -44,12 +44,12 @@ function EditTreatmentsPage() {
   };
 
   useEffect(() => {
-    get(`/treatments/details/${projectId}`)
+    get(`/treatments/details/${treatmentId}`)
       .then((response) => {
         const oneTreatment = response.data;
         setImage(oneTreatment.image);
         setTitle(oneTreatment.title);
-        setDescription(oneProject.description);
+        setDescription(oneTreatment.description);
         setDetails(oneTreatment.details)
       })
       .catch((error) => console.log(error));

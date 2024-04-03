@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 function TreatmentCard({ image, title, description, details, _id }) {
   return (
     <div className="treatment-card">
-    <Link to={`treatments/${_id}`}>
       <div className="treatment-image">
         <img src={image} alt={title} />
       </div>
       <div className="treatment-content">
+      <Link to={`treatments/${_id}`}>
         <h2>{title}</h2>
+      </Link>
         <p>{description}</p>
       </div>
       <div className="treatment-details">
@@ -26,7 +27,6 @@ function TreatmentCard({ image, title, description, details, _id }) {
           </tbody>
         </table>
       </div>
-      </Link>
     </div>
   );
 }

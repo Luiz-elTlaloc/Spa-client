@@ -23,7 +23,7 @@ function AddPromo({ refreshPromos }) {
 }, []);
 
   return (
-    <div className="content">
+    <div>
         <>
         <form onSubmit={handleSubmit}>
         <label>Image URL:</label>

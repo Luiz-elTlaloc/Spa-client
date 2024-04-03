@@ -39,6 +39,7 @@ function App() {
         <Route element={<LoggedIn />}>
           <Route path="/about" element={<AboutUsPage/>} />
           <Route path="/treatments" element={<TreatmentCard/>} />
+          <Route path="/treatments/:treatmentId" element={<EditTreatmentsPage/>} />
           <Route path="/edit-treatments" element={<AddTreatment/>} />
           <Route path="/set-promos" element={<AddPromo/>} />
 

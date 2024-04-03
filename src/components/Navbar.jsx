@@ -30,8 +30,10 @@ function Navbar() {
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li id="servicesButton" onClick={handleServicesButtonClick}><a href="/treatments">Services</a>
+          <li id="servicesButton" onClick={handleServicesButtonClick}>
+          <a href="/treatments">Services</a>
           </li>
+          {showTreatmentsMenu && (
           <div id="treatmentsMenu" class="hidden">
             <ul>
               <li className="menu-item">
@@ -42,7 +44,7 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          <>
+          )}
           {getToken() ? (  
             <>
           <li onClick={logOutUser}>Logout</li>
@@ -62,7 +64,6 @@ function Navbar() {
             <a href="/login">Login</a></li>
           </>
           )}
-          </>
         </ul>
       </div>
     </div>
