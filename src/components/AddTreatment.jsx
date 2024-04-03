@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { post } from '../services/authService'
 import { AuthContext } from "../context/auth.context";
+import TreatmentCard from "./TreatmentCard";
+import { fileChange } from "../services/imageUpload";
 
 function AddTreatment({ refreshTreatments }) {
   const { user } = useContext(AuthContext);
@@ -8,6 +10,9 @@ function AddTreatment({ refreshTreatments }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [details, setDetails] = useState([{ label: "", value: "" }]);
+  const [createdTreatment, setCreatedTreatment] = useState(null);
+
+  const [disabled, setDisabled] = useState(false)
   
   
   const handleDetailChange = (index, key, value) => {
@@ -15,6 +20,19 @@ function AddTreatment({ refreshTreatments }) {
     updatedDetails[index][key] = value;
     setDetails(updatedDetails);
   };
+  
+  const handlePhotoChange = (e) => {
+    setDisabled(true)
+      fileChange(e)
+        .then((response) => {
+          setImage(response.data.image)
+          setDisabled(false)
+        })
+        .catch((err) => {
+          console.log(err)
+          setDisabled(false)
+        })
+    }
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,10 +43,10 @@ function AddTreatment({ refreshTreatments }) {
       description,
       details,
     };
-    
-    
+  
     post('/treatments', requestBody)
     .then((response) => {
+      setCreatedTreatment(response.data);
       setImage("");
       setTitle("");
       setDescription("");
@@ -47,16 +65,13 @@ function AddTreatment({ refreshTreatments }) {
       <h3>Add Treatment</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>Image URL:</label>
-        <input
-          type="text"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+        <label>Insert image</label>
+        <input type="file" onChange={handlePhotoChange}
         />
 
         <label>Title:</label>
         <input
-          type="text"
+          src="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -88,8 +103,18 @@ function AddTreatment({ refreshTreatments }) {
           Add Detail
         </button>
 
-        <button type="submit">Submit</button>
+        <button disabled={disabled} type="submit">Submit</button>
       </form>
+
+      {createdTreatment && (
+        <TreatmentCard
+        image={createdTreatment.image}
+        title={createdTreatment.title}
+        description={createdTreatment.description}
+        details={createdTreatment.details}
+        _id={createdTreatment._id}
+        />
+      )}
     </div>
   );
 }

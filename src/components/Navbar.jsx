@@ -1,9 +1,11 @@
 // src/components/Navbar.jsx
 
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
+import { get } from "../services/authService";
 import { AuthContext } from "../context/auth.context";
 import logo_light from "../assets/Logo.png";
+import { SERVER_URL } from "../services/SERVER_URL";
 
 function Navbar() {
   const { logOutUser } = useContext(AuthContext);
@@ -12,6 +14,19 @@ function Navbar() {
   };
 
   const [showTreatmentsMenu, setShowTreatmentMenu] = useState(false);
+  const [treatments, setTreatments] = useState([])
+
+  const fetchTreatments = () => {
+    get('/treatments')
+    .then((response) => {
+      console.log("These are the found treatments===>", response.data)
+      setTreatments(response.data)})
+    .catch((error) => console.error('Error fetching treatments', error));
+  };
+
+  useEffect(() => {
+    fetchTreatments()
+  }, []);
 
 
   const handleServicesButtonClick = () => {
@@ -30,18 +45,23 @@ function Navbar() {
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li id="servicesButton" onClick={handleServicesButtonClick}>
-          <a href="/treatments">Services</a>
+          <li id="servicesButton">
+          <a href="#" onClick={handleServicesButtonClick}>Services</a>
           </li>
           {showTreatmentsMenu && (
-          <div id="treatmentsMenu" class="hidden">
+          <div id="treatmentsMenu">
             <ul>
-              <li className="menu-item">
+            {treatments.map((treatment) => (
+              <Link to={`/treatments/${treatment._id}`}>
+                  <li key={treatment._id}>{treatment.title}</li>
+              </Link>
+            ))}
+              {/* <li className="menu-item">
                 <a href="/treatments">Treatment 1</a>
               </li>
               <li className="menu-item">
                 <a href="/treatments">Treatment 2</a>
-              </li>
+              </li> */}
             </ul>
           </div>
           )}

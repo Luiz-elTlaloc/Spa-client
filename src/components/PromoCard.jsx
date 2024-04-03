@@ -1,12 +1,14 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { get } from '../services/authService';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/image2.jpg';
-import image3 from '../assets/image3.jpg';
+
 
 const PromoCard = () => {
+
+  const [promos, setPromos] = useState([])
+
   const settings = {
     dots: true,
     infinite: true,
@@ -15,21 +17,38 @@ const PromoCard = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 10000,
+    rows: 1,
+    slidesPerRow: 1,
+    vertical: false
   };
+
+  useEffect(() => {
+    get('/promo')
+      .then((response) => {
+        console.log("these are our promos ===>", response.data)
+        setPromos(response.data)
+      })
+      .catch((err) => {console.log(err)})
+  }, [])
 
   return (
     <div className="promo-card">
-      <Slider {...settings}>
-        <div>
-          <img src={image1} alt="Promo 1" />
-        </div>
-        <div>
-          <img src={image2} alt="Promo 2" />
-        </div>
-        <div>
-          <img src={image3} alt="Promo 3" />
-        </div>
-      </Slider>
+        {
+          promos.length > 0 &&
+            <Slider {...settings}>
+                
+                  {
+                    promos.map((promo) => {
+                      return (
+                      <div key={promo._id}>
+                        <img src={promo.image} alt='promo-image' />
+                      </div>
+                      )
+                    })
+                  }
+                
+            </Slider>
+}
     </div>
   );
 };
