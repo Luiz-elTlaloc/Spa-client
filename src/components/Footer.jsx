@@ -9,13 +9,13 @@ const Footer = () => {
       <a>Whatsapp</a>        
       </div>
       <div className="github-button">
-        <a href="https://github.com/emelygomezio/react-app">
+        <a href="https://github.com/Luiz-elTlaloc">
           GitHub Repository 
         </a>
       </div>
       <div className="footer-nav">
         <div className="footer-bottom">
-          <p> Facebook</p>
+          <a href="https://www.facebook.com/Monikspamx?locale=es_LA"> Facebook</a>
         </div>
       </div>
     </div>
