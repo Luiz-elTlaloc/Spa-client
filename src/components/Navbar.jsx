@@ -56,12 +56,7 @@ function Navbar() {
                   <li key={treatment._id}>{treatment.title}</li>
               </Link>
             ))}
-              {/* <li className="menu-item">
-                <a href="/treatments">Treatment 1</a>
-              </li>
-              <li className="menu-item">
-                <a href="/treatments">Treatment 2</a>
-              </li> */}
+
             </ul>
           </div>
           )}
@@ -69,7 +64,7 @@ function Navbar() {
             <>
           <li onClick={logOutUser}>Logout</li>
           <li>
-          <a href="/edit-treatments">Edit treatments</a>
+          <a href="/edit-treatments">Add Treatment</a>
           </li>
           <li>
             <a href='/set-promos'>Promos</a>

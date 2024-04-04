@@ -37,13 +37,16 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
 
+
         <Route element={<LoggedIn />}>
           <Route path="/about" element={<AboutUsPage/>} />
           <Route path="/edit-treatments" element={<AddTreatment/>} />
           <Route path="/set-promos" element={<AddPromo/>} />
+          <Route path="/treatments/update/:treatmentId" element={<EditTreatmentsPage/>} />
+          <Route path="/treatments/delete/:treatmentId" element={<EditTreatmentsPage/>} />
+          <Route path="/treatments/details/:treatmentId" element={<EditTreatmentsPage/>} />
           
           <Route path="/treatments/:treatmentId" element={<SelectedTreatmentPage/>} />
-
 
 
 

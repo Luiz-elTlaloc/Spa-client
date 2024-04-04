@@ -82,7 +82,7 @@ function AddTreatment({ refreshTreatments }) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <h3>Treatment Details</h3>
+        <h3>Prices</h3>
         {details.map((detail, index) => (
           <div key={index}>
             <input

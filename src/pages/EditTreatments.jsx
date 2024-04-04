@@ -8,6 +8,7 @@ function EditTreatmentsPage() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [details, setDetails] = useState([{ label: "", value: "" }]);
+    const [disabled, setDisabled] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
     
     const handleDetailChange = (index, key, value) => {
@@ -15,6 +16,22 @@ function EditTreatmentsPage() {
       updatedDetails[index][key] = value;
       setDetails(updatedDetails);
     };
+
+    const handlePhotoChange = (e) => {
+
+      setDisabled(true)
+  
+      fileChange(e)
+        .then((response) => {
+          setImage(response.data.image)
+          setDisabled(false)
+        })
+        .catch((err) => {
+          console.log(err)
+          setDisabled(false)
+        })
+  
+      }
 
   const { treatmentId } = useParams();
 
@@ -56,15 +73,12 @@ function EditTreatmentsPage() {
   }, [treatmentId]);
 
   return (
-    <div className="EditProjectPage">
+    <div className="AddTreatment">
       <h3>Edit the Project</h3>
 
       <form onSubmit={handleFormSubmit}>
-        <label>Image URL:</label>
-        <input
-          type="text"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+      <label>Change Image:</label>
+        <input type="file" onChange={handlePhotoChange}
         />
 
         <label>Title:</label>
@@ -101,7 +115,7 @@ function EditTreatmentsPage() {
           Add Detail
         </button>
 
-        <button type="submit">Submit</button>
+        <button disabled={disabled} type="submit">Submit</button>
       </form>
 
       <button onClick={deleteProject}>Delete Treatment</button>
