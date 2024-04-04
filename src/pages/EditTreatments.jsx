@@ -50,7 +50,7 @@ function EditTreatmentsPage() {
       console.log(error)});
   };
   
-  const deleteProject = () => {
+  const deleteTreatment = () => {
     axiosDelete(`/treatments/delete/${treatmentId}`)
     .then(() => {
       navigate("/treatments");
@@ -118,7 +118,7 @@ function EditTreatmentsPage() {
         <button disabled={disabled} type="submit">Submit</button>
       </form>
 
-      <button onClick={deleteProject}>Delete Treatment</button>
+      <button onClick={deleteTreatment}>Delete Treatment</button>
 
       {errorMessage && <p>{errorMessage}</p>}
     </div>

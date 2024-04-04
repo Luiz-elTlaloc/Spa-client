@@ -89,7 +89,7 @@ function AddTreatment({ refreshTreatments }) {
               type="text"
               value={detail.label}
               onChange={(e) => handleDetailChange(index, "label", e.target.value)}
-              placeholder="Label"
+              placeholder="Session or package"
             />
             <input
               type="text"

@@ -8,10 +8,10 @@ import logo_light from "../assets/Logo.png";
 import { SERVER_URL } from "../services/SERVER_URL";
 
 function Navbar() {
-  const { logOutUser } = useContext(AuthContext);
-  const getToken = () => {
-    return localStorage.getItem("authToken");
-  };
+  const { logOutUser, user } = useContext(AuthContext);
+  // const getToken = () => {
+  //   return localStorage.getItem("authToken");
+  // };
 
   const [showTreatmentsMenu, setShowTreatmentMenu] = useState(false);
   const [treatments, setTreatments] = useState([])
@@ -56,13 +56,15 @@ function Navbar() {
                   <li key={treatment._id}>{treatment.title}</li>
               </Link>
             ))}
-
             </ul>
           </div>
           )}
-          {getToken() ? (  
+
+          {user && (  
             <>
           <li onClick={logOutUser}>Logout</li>
+          {user.role === "admin" && (
+            <>
           <li>
           <a href="/edit-treatments">Add Treatment</a>
           </li>
@@ -70,7 +72,10 @@ function Navbar() {
             <a href='/set-promos'>Promos</a>
           </li>
           </>
-          ) : (
+          )}
+          </>
+          )}
+          {!user && (
           <>
             <li>
             <a href="/signup">Signup</a>

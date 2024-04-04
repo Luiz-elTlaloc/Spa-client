@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 import { get } from '../services/authService';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -8,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const PromoCard = () => {
 
   const [promos, setPromos] = useState([])
+  const { user } = useContext(AuthContext)
 
   const settings = {
     dots: true,
@@ -33,22 +36,21 @@ const PromoCard = () => {
 
   return (
     <div className="promo-card">
-        {
-          promos.length > 0 &&
+        {promos.length > 0 && (
             <Slider {...settings}>
-                
-                  {
-                    promos.map((promo) => {
-                      return (
-                      <div key={promo._id}>
-                        <img src={promo.image} alt='promo-image' />
+                  {promos.map((promo) => (
+                    <div key={promo._id}>
+                    {user && user.role === "admin" ? (
+                      <Link to={`/promo/delete/${promo._id}`}>
+                      <img src={promo.image} alt='promo-image' />
+                      </Link>
+                    ) : (
+                      <img src={promo.image} alt='promo-image' />
+                      )}
                       </div>
-                      )
-                    })
-                  }
-                
+                    ))}
             </Slider>
-}
+)}
     </div>
   );
 };

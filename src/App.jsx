@@ -11,6 +11,7 @@ import EditTreatmentsPage from "./pages/EditTreatments";
 import AddPromo from "./components/AddPromo";
 import AddTreatment from "./components/AddTreatment";
 import SelectedTreatmentPage from "./pages/SelectedTreatmentPage";
+import DeletePromos from "./pages/DeletePromo";
 
 function App() {
   const getToken = () => {
@@ -36,6 +37,8 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUsPage/>} />
+        <Route path="/treatments/:treatmentId" element={<SelectedTreatmentPage/>} />
 
 
         <Route element={<LoggedIn />}>
@@ -45,6 +48,7 @@ function App() {
           <Route path="/treatments/update/:treatmentId" element={<EditTreatmentsPage/>} />
           <Route path="/treatments/delete/:treatmentId" element={<EditTreatmentsPage/>} />
           <Route path="/treatments/details/:treatmentId" element={<EditTreatmentsPage/>} />
+          <Route path="/promo/delete/:promoId" element={<DeletePromos/>} />
           
           <Route path="/treatments/:treatmentId" element={<SelectedTreatmentPage/>} />
 
